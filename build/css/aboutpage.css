@@ -39,6 +39,7 @@ body {
 }
 
 .topnav a {
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -269,6 +270,8 @@ body {
 /*member 1 info */
 .member{
     display:flex;
+    justify-content: center;
+    align-items: center;
     /*width:13%; */
     flex-flow: column nowrap;
     flex-basis: 200px; 
