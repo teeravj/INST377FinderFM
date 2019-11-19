@@ -55,9 +55,9 @@ body {
     color: #F26671 !important;
 }
 
-.dec_img {
+.header_img {
     height: 55%;
-    background-image: url("https://www.visitoakcreek.com/wp-content/uploads/2017/10/farmers-market-vendors-banner-1-1800x500.jpg");
+    background-image: url("../img/documentation.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
