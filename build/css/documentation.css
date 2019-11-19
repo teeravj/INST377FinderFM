@@ -55,14 +55,6 @@ body {
     color: #F26671 !important;
 }
 
-.header_img {
-    height: 55%;
-    background-image: url("../img/documentation.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position:center;
-}
-
 .documentation_container {
     width: 50%;
     margin: auto;
