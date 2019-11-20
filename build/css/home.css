@@ -154,3 +154,144 @@ body {
       text-align: left;
     }
 }
+
+
+.select_fm{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: tan;
+}
+
+/*ITEM 1*/
+
+.item_1 {
+    display:flex;
+    flex-flow: column nowrap;
+    padding: 17px;
+    background-color: white;
+    border-radius: 15px;
+    margin-bottom:100px;
+    margin-top:100px;
+}
+
+.item_img {
+    background-image: url("../static/pie.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    height: 350px;
+    width:400px;
+    color:white;
+    text-align: center;   
+}
+
+.text{
+    
+    font-weight: 525;
+    font-size: 30px;
+
+}
+
+.item_text{
+    font-weight: 200;
+    padding-top: 20px;
+    text-align: center; 
+}
+
+.item_learnmore{
+    padding:10px;
+    background-color: #F26671;
+    border-radius: 10px;
+    color:white;
+    font-weight: 400;
+}
+
+/*ITEM 2*/
+
+.item_2 {
+    display:flex;
+    flex-flow: column nowrap;
+    padding: 17px;
+    background-color: white;
+    border-radius: 15px;
+    margin-bottom:100px;
+    margin-top:100px;
+}
+
+.item_img2 {
+    background-image: url("../static/pie.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    height: 350px;
+    width:400px;
+    color:white;
+    text-align: center;   
+
+}
+
+.text2 {
+    
+    font-weight: 525;
+    font-size: 30px;
+
+}
+
+.item_text2 {
+    font-weight: 200;
+    padding-top: 20px;
+    text-align: center; 
+}
+
+.item_learnmore2 {
+    padding:10px;
+    background-color: #F26671;
+    border-radius: 10px;
+    color:white;
+    font-weight: 400;
+}
+
+/*ITEM 3*/
+
+.item_3 {
+    display:flex;
+    flex-flow: column nowrap;
+    padding: 17px;
+    background-color: white;
+    border-radius: 15px;
+    margin-bottom:100px;
+    margin-top:100px;
+}
+
+.item_img3 {
+    background-image: url("../static/pie.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    height: 350px;
+    width:400px;
+    color:white;
+    text-align: center;    
+}
+
+.text3 {
+    
+    font-weight: 525;
+    font-size: 30px;
+
+}
+
+.item_text3 {
+    font-weight: 200;
+    padding-top: 20px;
+    text-align: center; 
+}
+
+.item_learnmore3 {
+    padding:10px;
+    background-color: #F26671;
+    border-radius: 10px;
+    color:white;
+    font-weight: 400;
+}
