@@ -57,8 +57,8 @@ body {
 
 .dec_img {
     
-    height:100%;
-    background-image: url("../static/varfruit.jpg");
+    height:80%;
+    background-image: url("../static/peach.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
@@ -75,9 +75,9 @@ body {
     color: white;
     font-size: 3.5rem;
     background: rgb(0, 0, 0, .70);
-    padding: 7%;
+    padding: 5%;
     text-align:center;
-    margin-bottom:9%;
+    margin:auto;
 }
 
 .head_header a {
@@ -160,7 +160,10 @@ body {
     display:flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    background-color: rgb(250, 231, 206);
+    background-color: white;      /*rgb(41, 41, 41);*/
+    align-content: center;
+    
+    height:550px;
 }
 
 /*ITEM 1*/
@@ -171,25 +174,26 @@ body {
     padding: 17px;
     background-color: white;
     border-radius: 15px;
-    margin-bottom:100px;
-    margin-top:100px;
+    border: 3px dotted black;
+  
 }
 
 .item_img {
-    background-image: url("../static/pie.jpg");
+    background-image: url("../static/blueberry2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
-    height: 350px;
-    width:400px;
+    height: 250px;
+    width:300px;
     color:white;
     text-align: center;   
 }
 
 .text{
     
-    font-weight: 525;
+    font-weight: 600;
     font-size: 30px;
+    margin-top:100px;
 
 }
 
@@ -215,17 +219,17 @@ body {
     padding: 17px;
     background-color: white;
     border-radius: 15px;
-    margin-bottom:100px;
-    margin-top:100px;
+    border: 3px dotted black;
+   
 }
 
 .item_img2 {
-    background-image: url("../static/pie.jpg");
+    background-image: url("../static/pepper.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
-    height: 350px;
-    width:400px;
+    height: 250px;
+    width:300px;
     color:white;
     text-align: center;   
 
@@ -233,8 +237,9 @@ body {
 
 .text2 {
     
-    font-weight: 525;
+    font-weight: 600;
     font-size: 30px;
+    margin-top:100px;
 
 }
 
@@ -260,25 +265,26 @@ body {
     padding: 17px;
     background-color: white;
     border-radius: 15px;
-    margin-bottom:100px;
-    margin-top:100px;
+    border: 3px dotted black;
+  
 }
 
 .item_img3 {
-    background-image: url("../static/pie.jpg");
+    background-image: url("../static/apple.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
-    height: 350px;
-    width:400px;
+    height: 250px;
+    width:300px;
     color:white;
     text-align: center;    
 }
 
 .text3 {
     
-    font-weight: 525;
+    font-weight: 600;
     font-size: 30px;
+    margin-top:100px;
 
 }
 
@@ -294,4 +300,23 @@ body {
     border-radius: 10px;
     color:white;
     font-weight: 400;
+}
+
+.copy {
+    
+    color:white;
+    letter-spacing: 5px;
+    font-size: 40px;
+    font-weight:600;
+    text-align:center;
+    background-color: black;
+    padding:70px;
+}
+
+.contact_info {
+    font-weight:300;
+    color:white;
+    font-size: 25px;
+    letter-spacing: 3px;
+
 }
