@@ -58,7 +58,7 @@ body {
 .dec_img {
     
     height: 55%;
-    background-image: url("colorfruit.jpeg");
+    background-image: url("../static/colorfruit.jpeg"); 
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
