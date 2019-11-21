@@ -58,7 +58,7 @@ body {
 .dec_img {
     
     height: 55%;
-    background-image: url("../img/documentation.jpg");
+    background-image: url("../img/root.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
@@ -79,7 +79,7 @@ body {
     /* #843c8c   */
     /*text-transform: lowercase;*/
     font-size: 48px;
-    color: #73ce45;
+    color: #8c334f; /*#73ce45;*/ /*#db1650;*/   /* good purple/red #8c334f*/ /*#79579a*/ /* yellow #efdb51*/
     text-align: center;
     padding-top: 25px;
   
@@ -115,9 +115,11 @@ ul {
 
 .api{
     padding: 100px;
-    background-color: #73ce45;
+    background-color:#8c334f; /*#73ce45 */  
     text-align: center; 
     color:white;
+    font-weight: 800;
+    font-size: 22px;
 }
 
 .link {

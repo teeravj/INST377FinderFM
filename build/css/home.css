@@ -160,7 +160,7 @@ body {
     display:flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    background-color: tan;
+    background-color: rgb(250, 231, 206);
 }
 
 /*ITEM 1*/

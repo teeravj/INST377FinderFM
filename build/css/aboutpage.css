@@ -227,7 +227,7 @@ body {
 /* team */
 
 .team_container{
-    background-color:#8cbbad;
+    background-color:#88c4b3;
     /*height:300px; */
     display:flex;
     flex-flow: column nowrap;
@@ -236,14 +236,14 @@ body {
     flex-basis: auto;
 }
 .team_header {
-    font-weight: 400;
-    letter-spacing: .2px;
+    font-weight: 500;
+    letter-spacing: 1.6px;
     font-family: HalisR-SBold,sans-serif;
     /*text-transform: lowercase;*/
     font-size: 42px;
     padding-top: 1.5%;
     padding-left:1.5%;
-    color: black;
+    color: white;
     /*padding-bottom: 20px; */
     text-align:center;
     /*padding: 25px;*/
@@ -342,7 +342,7 @@ body {
 
 .desc {
     text-align:center;
-    color: black;
+    color: white;
     padding: 5px;
     
     
