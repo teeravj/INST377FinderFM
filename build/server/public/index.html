@@ -6,6 +6,8 @@
   <meta charset="utf-8">
   <meta name="author" content="">
 
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
   <title>FM Filters</title> 
 
 </head>
@@ -14,14 +16,27 @@
   <div class="container">
       <div class="wrapper">
         <div class="header">PG County Farmers Markets</div>
-        <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
-        sun: <input type="checkbox" id="sun" class="day">
-        mon: <input type="checkbox" id="mon" class="day">
-        tues: <input type="checkbox" id="tues" class="day">
-        wed: <input type="checkbox" id="wed" class="day">
-        thurs: <input type="checkbox" id="thurs" class="day">
-        fri: <input type="checkbox" id="fri" class="day"> 
-        sat: <input type="checkbox" id="sat" class="day">
+        <input type="checkbox" id="Sun" class="day">
+        <label for="Sun">Sunday:</label>
+
+        <input type="checkbox" id="Mon" class="day">
+        <label for="Mon">Monday:</label>
+
+        <input type="checkbox" id="Tue" class="day">
+        <label for="Tue">Tuesday:</label>
+
+        <input type="checkbox" id="Wed" class="day">
+        <label for="Wed">Wednesday:</label>
+
+        <input type="checkbox" id="Thu" class="day">
+        <label for="Thu">Thursday:</label>
+
+        <input type="checkbox" id="Fri" class="day"> 
+        <label for="Fri">Friday:</label>
+
+        <input type="checkbox" id="Sat" class="day">
+        <label for="Sat">Saturday:</label>
+
         <input type="submit" value="Submit" id="submit" onclick="fetchData()">
         <div class="content">
           <ul class="results"></ul>
@@ -32,22 +47,94 @@
     <script>
       
       function fetchData() {
-        console.log('fetch'); // make sure onClick works accordingly
+        console.log('fetch'); 
         fetch('/api')
           .then(res => res.json())
           .then(res => {
-            console.log(res); // make sure res is what we think
+            console.log(res); 
             return res;
           })
-          /* this calls the fmarray object by its key (fmarray) so we can access 
-          the array in the object that we created in line 54 in the server.js file*/
-          .then(res => res.fmarray)
-          .then(data => data.map(f => f.market_name))
-          // this calls the function that inserts the array into the html as an unordered list
-          .then(markets => makeListInHTML(markets)); 
+          .then(res => res.data)
+          .then(markets => markets.map(f => f.market_name + ", " + f.season1time))
+          .then(markets => dayFilter(markets));
+          //.then(markets => makeListInHTML(markets)); 
         };
 
+
+      function dayFilter(arr) {
+        //global variables
+        let modArray = arr;
+        //make sure modArray is what we think it is
+        console.log(modArray);
+
+        let dayNames = [];
+        let filteredMarkets = [];
+
+        //set global variables for each day of week checkbox by id
+        const sunBox = document.getElementById("Sun");
+        const monBox = document.getElementById("Mon");
+        const tuesBox = document.getElementById("Tue");
+        const wedBox = document.getElementById("Wed");
+        const thursBox = document.getElementById("Thu");
+        const friBox = document.getElementById("Fri");
+        const satBox = document.getElementById("Sat");
+   
+        //find the day boxes that are checked
+        //then, if checked, change the value of the id to a string and push to dayNames array
+        if (sunBox.checked == true) {
+          dayNames.push(sunBox.id.toString());
+          } 
+        
+        if (monBox.checked == true) {
+          dayNames.push(monBox.id.toString());
+          }
+        
+        if (tuesBox.checked == true) {
+          dayNames.push(tuesBox.id.toString());
+          }
+
+        if (wedBox.checked == true) {
+          dayNames.push(wedBox.id.toString());
+          }
+
+        if (thursBox.checked == true) {
+          dayNames.push(thursBox.id.toString());
+          }
+
+        if (friBox.checked == true) {
+          dayNames.push(friBox.id.toString());
+          }
+
+        if (satBox.checked == true) {
+          dayNames.push(satBox.id.toString());
+          }
+        
+        //confirm content of dayNames array
+        console.log(dayNames);
+
+        //each string in dayNames = d
+        dayNames.forEach(d => {
+          //each market in modArray = item
+          modArray.forEach( item => {
+            //for all items, if the item includes d, the id of the checked day box corresponding to DOW...
+            if (item.includes(d.valueOf() + ":") == true) {
+              //...push that item into the filtered markets array!
+              if (!filteredMarkets.includes(item)){
+              filteredMarkets.push(item);
+              }
+            }
+          })
+          //check to see what was actually pushed to the filteredMarkets array 
+          console.log(filteredMarkets);  
+          })
+        //create an unordered list that shows the contents of filteredMarkets  
+        const results = document.querySelector('.results');
+        results.innerHTML = makeListInHTML(filteredMarkets);
+      };
+
+      //displays filtered market array in an unordered list
       function makeListInHTML(array) {
+        //clears existing content from previous search
         const htmlTarget = document.querySelector('.content');
         htmlTarget.innerHTML = '';
         let el1 = document.createElement("ul");
