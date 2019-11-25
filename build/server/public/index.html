@@ -1,151 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
 
-<head>
+    <link rel="stylesheet" type="text/css" href="find.css" />
+    <script src="filters.js"></script>
 
-  <meta charset="utf-8">
-  <meta name="author" content="">
+    <title>Sample Filters</title>
+  </head>
 
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <body>
+    <!-- Marisa's navbar & logo code -->
+    <div class="logobar">
+      <div class="logo">Finder FM</div>
+    </div>
+    <div class="topnav" id="myNav">
+      <a href="home.html">Home </a>
+      <a href="about_page.html">About Us </a>
+      <a href="#find">Find a Farmers Market </a>
+      <a href="documentation.html">Documentation </a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
 
-  <title>FM Filters</title> 
-
-</head>
-
-<body>
-  <div class="container">
-      <div class="wrapper">
-        <div class="header">PG County Farmers Markets</div>
-        <input type="checkbox" id="Sun" class="day">
+    <!-- div holding everything under the navbar -->
+    <div class="container">
+      <!-- div holding filters on left side of the page -->
+      <div class="filters">
+        <!-- days of the week -->
+        <input type="checkbox" id="sun" class="day" />
         <label for="Sun">Sunday:</label>
 
-        <input type="checkbox" id="Mon" class="day">
+        <input type="checkbox" id="mon" class="day" />
         <label for="Mon">Monday:</label>
 
-        <input type="checkbox" id="Tue" class="day">
+        <input type="checkbox" id="tue" class="day" />
         <label for="Tue">Tuesday:</label>
 
-        <input type="checkbox" id="Wed" class="day">
+        <input type="checkbox" id="wed" class="day" />
         <label for="Wed">Wednesday:</label>
 
-        <input type="checkbox" id="Thu" class="day">
+        <input type="checkbox" id="thu" class="day" />
         <label for="Thu">Thursday:</label>
 
-        <input type="checkbox" id="Fri" class="day"> 
+        <input type="checkbox" id="fri" class="day" />
         <label for="Fri">Friday:</label>
 
-        <input type="checkbox" id="Sat" class="day">
+        <input type="checkbox" id="sat" class="day" />
         <label for="Sat">Saturday:</label>
 
-        <input type="submit" value="Submit" id="submit" onclick="fetchData()">
+        <!-- method of payment -->
+        <input type="checkbox" id="wic" class="pay" />
+        <label for="wic">WICC:</label>
+
+        <input type="checkbox" id="wcash" class="pay" />
+        <label for="wcash">WICcash:</label>
+
+        <input type="checkbox" id="sfmnp" class="pay" />
+        <label for="sfmnp">SFMNP:</label>
+
+        <input type="checkbox" id="snap" class="pay" />
+        <label for="snap">SNAP:</label>
+
+        <!-- products -->
+        <input type="checkbox" id="baked" class="prod" />
+        <label for="baked">Baked Goods:</label>
+
+        <input type="checkbox" id="cheese" class="prod" />
+        <label for="Mon">Cheese:</label>
+
+        <input type="checkbox" id="crafts" class="prod" />
+        <label for="crafts">Crafts:</label>
+
+        <input type="checkbox" id="flowers" class="prod" />
+        <label for="flowers">Flowers:</label>
+
+        <input type="checkbox" id="eggs" class="prod" />
+        <label for="eggs">Eggs:</label>
+
+        <input type="checkbox" id="sea" class="prod" />
+        <label for="sea">Seafood:</label>
+
+        <input type="checkbox" id="herbs" class="prod" />
+        <label for="herbs">Herbs:</label>
+
+        <input type="checkbox" id="veg" class="prod" />
+        <label for="veg">Vegetables:</label>
+
+        <input type="checkbox" id="honey" class="prod" />
+        <label for="honey">Honey:</label>
+
+        <input type="checkbox" id="jam" class="prod" />
+        <label for="jam">Jams:</label>
+
+        <input type="checkbox" id="maple" class="prod" />
+        <label for="maple">Maple:</label>
+
+        <input type="checkbox" id="meat" class="prod" />
+        <label for="meat">Meat:</label>
+
+        <input type="checkbox" id="nurse" class="prod" />
+        <label for="nurse">Nursery:</label>
+
+        <input type="checkbox" id="nuts" class="prod" />
+        <label for="nuts">Nuts:</label>
+
+        <input type="checkbox" id="plants" class="prod" />
+        <label for="plants">Plants:</label>
+
+        <input type="checkbox" id="poultry" class="prod" />
+        <label for="poultry">Poultry:</label>
+
+        <input type="checkbox" id="prep" class="prod" />
+        <label for="prep">Prepared Food:</label>
+
+        <input type="checkbox" id="soap" class="prod" />
+        <label for="soap">Soap:</label>
+
+        <input type="checkbox" id="trees" class="prod" />
+        <label for="trees">Trees:</label>
+
+        <input type="checkbox" id="wine" class="prod" />
+        <label for="wine">Wine:</label>
+
+        <input
+          type="submit"
+          value="Submit"
+          id="submit"
+          onclick="filterMarkets()"
+        />
         <div class="content">
           <ul class="results"></ul>
         </div>
-        <div class="footer"></div>
       </div>
+      <div class="footer"></div>
     </div>
-    <script>
-      
-      function fetchData() {
-        console.log('fetch'); 
-        fetch('/api')
-          .then(res => res.json())
-          .then(res => {
-            console.log(res); 
-            return res;
-          })
-          .then(res => res.data)
-          .then(markets => markets.map(f => f.market_name + ", " + f.season1time))
-          .then(markets => dayFilter(markets));
-          //.then(markets => makeListInHTML(markets)); 
-        };
-
-
-      function dayFilter(arr) {
-        //global variables
-        let modArray = arr;
-        //make sure modArray is what we think it is
-        console.log(modArray);
-
-        let dayNames = [];
-        let filteredMarkets = [];
-
-        //set global variables for each day of week checkbox by id
-        const sunBox = document.getElementById("Sun");
-        const monBox = document.getElementById("Mon");
-        const tuesBox = document.getElementById("Tue");
-        const wedBox = document.getElementById("Wed");
-        const thursBox = document.getElementById("Thu");
-        const friBox = document.getElementById("Fri");
-        const satBox = document.getElementById("Sat");
-   
-        //find the day boxes that are checked
-        //then, if checked, change the value of the id to a string and push to dayNames array
-        if (sunBox.checked == true) {
-          dayNames.push(sunBox.id.toString());
-          } 
-        
-        if (monBox.checked == true) {
-          dayNames.push(monBox.id.toString());
-          }
-        
-        if (tuesBox.checked == true) {
-          dayNames.push(tuesBox.id.toString());
-          }
-
-        if (wedBox.checked == true) {
-          dayNames.push(wedBox.id.toString());
-          }
-
-        if (thursBox.checked == true) {
-          dayNames.push(thursBox.id.toString());
-          }
-
-        if (friBox.checked == true) {
-          dayNames.push(friBox.id.toString());
-          }
-
-        if (satBox.checked == true) {
-          dayNames.push(satBox.id.toString());
-          }
-        
-        //confirm content of dayNames array
-        console.log(dayNames);
-
-        //each string in dayNames = d
-        dayNames.forEach(d => {
-          //each market in modArray = item
-          modArray.forEach( item => {
-            //for all items, if the item includes d, the id of the checked day box corresponding to DOW...
-            if (item.includes(d.valueOf() + ":") == true) {
-              //...push that item into the filtered markets array!
-              if (!filteredMarkets.includes(item)){
-              filteredMarkets.push(item);
-              }
-            }
-          })
-          //check to see what was actually pushed to the filteredMarkets array 
-          console.log(filteredMarkets);  
-          })
-        //create an unordered list that shows the contents of filteredMarkets  
-        const results = document.querySelector('.results');
-        results.innerHTML = makeListInHTML(filteredMarkets);
-      };
-
-      //displays filtered market array in an unordered list
-      function makeListInHTML(array) {
-        //clears existing content from previous search
-        const htmlTarget = document.querySelector('.content');
-        htmlTarget.innerHTML = '';
-        let el1 = document.createElement("ul");
-        el1.className = 'list';
-        htmlTarget.appendChild(el1);
-
-        for (let i = 0; i < array.length; i++) {
-          let el = document.createElement("li");
-          el.innerText = array[i];
-          htmlTarget.appendChild(el);
-          };
-        }
-    </script>
-</body>
+  </body>
+</html>
