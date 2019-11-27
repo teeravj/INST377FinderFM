@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="" />
+
+  <link rel="stylesheet" type="text/css" href="css/find.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+  <link rel="stylesheet" href="css/maps.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/aboutpage.css">
+  <script type="text/javascript" src="./js/test.js"></script>
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+    crossorigin=""></script>
+  <script src="filters.js"></script>
+
+  <title>Sample Filters</title>
+</head>
+
+<body>
+  <!-- Marisa's navbar & logo code -->
+  <div class="logobar">
+    <div class="logo">Finder FM</div>
+  </div>
+  <div class="topnav" id="myNav">
+    <a href="home.html">Home </a>
+    <a href="about_page.html">About Us </a>
+    <a href="#find">Find a Farmers Market </a>
+    <a href="documentation.html">Documentation </a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+
+  <!-- div holding everything under the navbar -->
+  <div class="sidenav" id="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <!-- div holding filters on left side of the page -->
+    <div class="filters">
+      <!-- days of the week -->
+      <b>Days of the week</b><br>
+      <label for="Sun">Sunday:</label>
+      <input type="checkbox" id="sun" class="day" />
+
+
+      <label for="Mon"> Monday:</label>
+      <input type="checkbox" id="mon" class="day" />
+      <br>
+
+      <label for="Tue">Tuesday:</label>
+      <input type="checkbox" id="tue" class="day" />
+
+
+
+      <label for="Wed"> Wednesday:</label>
+      <input type="checkbox" id="wed" class="day" />
+      <br>
+
+
+      <label for="Thu">Thursday:</label>
+      <input type="checkbox" id="thu" class="day" />
+
+
+
+      <label for="Fri"> Friday:</label>
+      <input type="checkbox" id="fri" class="day" />
+      <br>
+
+
+      <label for="Sat">Saturday:</label>
+      <input type="checkbox" id="sat" class="day" />
+      <br><br>
+
+      <b>Payment Method</b><br>
+      <label for="wic">WICC:</label>
+      <input type="checkbox" id="wic" class="pay" />
+
+
+
+      <label for="wcash"> WICcash:</label>
+      <input type="checkbox" id="wcash" class="pay" />
+
+      <br>
+
+      <label for="sfmnp">SFMNP:</label>
+      <input type="checkbox" id="sfmnp" class="pay" />
+
+
+
+      <label for="snap"> SNAP:</label>
+      <input type="checkbox" id="snap" class="pay" />
+
+      <br><br>
+
+      <b>Products</b><br>
+      <label for="baked">Baked Goods:</label>
+      <input type="checkbox" id="baked" class="prod" />
+
+
+
+      <label for="Mon"> Cheese:</label>
+      <input type="checkbox" id="cheese" class="prod" />
+
+      <br>
+
+      <label for="crafts">Crafts:</label>
+      <input type="checkbox" id="crafts" class="prod" />
+
+
+
+
+
+      <label for="flowers"> Flowers:</label>
+      <input type="checkbox" id="flowers" class="prod" />
+      <br>
+
+      <label for="eggs">Eggs:</label>
+
+      <input type="checkbox" id="eggs" class="prod" />
+
+
+      <label for="sea"> Seafood:</label>
+
+      <input type="checkbox" id="sea" class="prod" />
+      <br>
+
+      <label for="herbs">Herbs:</label>
+
+      <input type="checkbox" id="herbs" class="prod" />
+
+
+      <label for="veg"> Vegetables:</label>
+
+      <input type="checkbox" id="veg" class="prod" />
+      <br>
+
+      <label for="honey">Honey:</label>
+
+      <input type="checkbox" id="honey" class="prod" />
+
+
+      <label for="jam"> Jams:</label>
+
+      <input type="checkbox" id="jam" class="prod" />
+      <br>
+
+      <label for="maple">Maple:</label>
+
+      <input type="checkbox" id="maple" class="prod" />
+
+
+      <label for="meat"> Meat:</label>
+
+      <input type="checkbox" id="meat" class="prod" />
+      <br>
+
+      <label for="nurse">Nursery:</label>
+      <input type="checkbox" id="nurse" class="prod" />
+
+
+
+      <label for="nuts"> Nuts:</label>
+      <input type="checkbox" id="nuts" class="prod" />
+
+      <br>
+
+      <label for="plants">Plants:</label>
+      <input type="checkbox" id="plants" class="prod" />
+
+
+
+
+
+      <label for="poultry"> Poultry:</label>
+      <input type="checkbox" id="poultry" class="prod" />
+      <br>
+
+      <label for="prep">Prepared Food:</label>
+      <input type="checkbox" id="prep" class="prod" />
+
+
+
+      <label for="soap"> Soap:</label>
+      <input type="checkbox" id="soap" class="prod" />
+
+      <br>
+
+      <label for="trees">Trees:</label>
+      <input type="checkbox" id="trees" class="prod" />
+
+
+
+      <label for="wine"> Wine:</label>
+      <input type="checkbox" id="wine" class="prod" />
+
+      <br><br>
+
+      <input type="submit" value="Submit" id="submit" onclick="filterMarkets()" />
+      <div class="content">
+        <ul class="results"></ul>
+      </div>
+    </div>
+    <!-- <div class="footer"></div> -->
+  </div>
+  <div class="bod">
+    <button class="openbtn" onclick="openNav()">☰ Filters</button>
+    <div class="area">
+      <div class="scene scene--card">
+        <div class="card">
+          <div class="card__face card__face--front">Card view</div>
+          <div id="map" class="card__face card__face--back"></div>
+        </div>
+      </div>
+      <button class="openbtn flipper_button">Toggle map</button>
+    </div>
+
+
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("sidenav").style.width = "250px";
+      document.getElementById("sidenav").style.paddingLeft = "10px";
+      document.getElementById("bod").style.marginLeft = "250px";
+      document.getElementById("flip_card_inner").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("sidenav").style.width = "0";
+      document.getElementById("sidenav").style.paddingLeft = "0";
+      document.getElementById("bod").style.marginLeft = "0";
+      document.getElementById("flip_card_inner").style.marginLeft = "0";
+    }
+
+    var flip_button = document.querySelector('.flipper_button');
+    var card = document.querySelector('.card');
+    flip_button.addEventListener('click', function () {
+      card.classList.toggle('is-flipped');
+    });
+
+    var map = L.map('map', { keyboard: true, scrollWheelZoom: true }).setView([38.9, -76.8], 10);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+      maxZoom: 18,
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      id: 'mapbox.streets'
+    }).addTo(map);
+
+    function onLocationFound(e) {
+      var radius = e.accuracy / 2;
+
+      L.marker(e.latlng).addTo(map)
+        .bindPopup("This is your current location!").openPopup();
+      // .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+      L.circle(e.latlng, radius).addTo(map);
+    }
+
+    function onLocationError(e) {
+      alert(e.message);
+    }
+
+    map.on('locationfound', onLocationFound);
+    map.on('locationerror', onLocationError);
+
+    map.locate({ setView: true, maxZoom: 12 });
+
+
+    fetch('https://data.princegeorgescountymd.gov/resource/sphi-rwax.json')
+      .then(res => res.json())
+      .then(places => places.map(p => p.location))
+      .then(places => {
+        for (i = 0; i < places.length; i++) {
+          // The following code extracts the 'address' part from the string below and displays it on markers
+          // The code is also creating markers based on the latitude and longitude value taken from the array of farmers markets 
+          // Example string :
+          // {"address": "American Way National Harbor Maryland 20745.00000000", "city": "", "state": "", "zip": ""}
+          let s = places[i]['human_address']
+          let ind = s.lastIndexOf('"address":') + 12
+          let ind2 = s.indexOf(",")
+          let loc = s.slice(ind, ind2 - 1)
+          var marker = L.marker([places[i]['latitude'], places[i]['longitude']]).addTo(map);
+          marker.bindPopup(loc);
+        }
+      }
+      )
+  </script>
+</body>
+
+</html>
