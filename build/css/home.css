@@ -107,7 +107,9 @@ body {
         background: rgb(0, 0, 0, .70);
         padding: 10%;
         text-align:center;
-        margin-bottom:19%;
+        /*margin-bottom:19%*/
+        text-align:center;
+        margin:auto;
     }
     
     .head_header a {
@@ -117,6 +119,7 @@ body {
         font-size: 13px;
         background: #F26671;
         color:white;
+
     }
     
     
@@ -156,14 +159,36 @@ body {
 }
 
 
+.fm{
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.header_fm{
+    text-align: center; /* why need this to center and not just justify content*/
+    font-family: Pacifico; 
+    font-size: 48px; font-style: normal; 
+    font-variant: normal;
+    margin:25px;
+    /* why white aorund text with no padding/margin? */
+
+
+}
+
 .select_fm{
     display:flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: white;      /*rgb(41, 41, 41);*/
     align-content: center;
     
-    height:550px;
+    margin-bottom:50px;
+    margin-left:50px;
+    margin-right:50px;
+   
 }
 
 /*ITEM 1*/
@@ -175,6 +200,13 @@ body {
     background-color: white;
     border-radius: 15px;
     border: 3px dotted black;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    margin-left: 20px;
+    margin-right:20px;
+    flex-basis:300px;
+   
+    
   
 }
 
@@ -220,7 +252,14 @@ body {
     background-color: white;
     border-radius: 15px;
     border: 3px dotted black;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    flex-basis:300px;
+    margin-left: 20px;
+    margin-right:20px;
    
+    
+    
 }
 
 .item_img2 {
@@ -266,6 +305,13 @@ body {
     background-color: white;
     border-radius: 15px;
     border: 3px dotted black;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    flex-basis:300px;
+    margin-left: 20px;
+    margin-right:20px;
+   
+
   
 }
 
