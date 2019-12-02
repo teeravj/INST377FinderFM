@@ -1,9 +1,14 @@
 let markets;
+//This will be for markets in local storage for extra credit
+//let storedMarkets;
 
 document.addEventListener("DOMContentLoaded", async () => {
   markets = await fetchMarketsAsync();
+  //storedMarkets = setMarketDescriptions(markets);
   console.log(markets);
+  //console.log(storedMarkets);
   renderMarkets(markets);
+  renderMap(markets);
 });
 
 // Fetches all markets and returns an array
@@ -15,7 +20,7 @@ async function fetchMarketsAsync() {
 
 // Renders the array of markets
 function renderMarkets(markets) {
-  const marketCards = document.querySelector(".results");
+  const marketCards = document.querySelector(".marketCardsFace--front");
   marketCards.innerHTML = "";
   markets.forEach(m => {
     renderMarket(m, marketCards);
@@ -51,14 +56,18 @@ function renderMarket(market, marketCards) {
   flippingCard.appendChild(cardDescription);
 
   //create description text and append it to the back description div
-  const marketDescription = document.createTextNode("Market Details");
+  const marketLocation = JSON.parse(market.location.human_address);
+  const marketDescription = document.createTextNode(
+    "This market runs " + market.season1time + " at " + marketLocation.address
+  );
+
   cardDescription.appendChild(marketDescription);
 
   //create a more info button that flips the title to the description
   const moreInfo = document.createElement("div");
   moreInfo.className = "infoButton";
   moreInfo.innerHTML = "More Info";
-  moreInfo.addEventListener("click", function() {
+  moreInfo.addEventListener("click", function () {
     flippingCard.classList.toggle("is-flipped");
   });
 
@@ -67,11 +76,49 @@ function renderMarket(market, marketCards) {
   marketCards.appendChild(cardBody);
 }
 
+// Takes filtered array and renders map with those locations
+function renderMap(markets) {
+  const mapDisplay = document.querySelector(".mapFace--back");
+  mapDisplay.innerHTML = "";
+
+  // Start of Kavita's code
+  let map = L.map("map", { keyboard: true, scrollWheelZoom: true }).setView(
+    [38.9, -76.8],
+    10
+  );
+
+  // This is the code that was in Kavita's fetch and .then statements
+  markets.forEach(m => {
+    let s = m.location.human_address;
+    let ind = s.lastIndexOf('"address":') + 12;
+    let ind2 = s.indexOf(",");
+    let loc = s.slice(ind, ind2 - 1);
+    var marker = L.marker([m.location.latitude, m.location.longitude]).addTo(
+      map
+    );
+    marker.bindPopup(loc);
+  });
+
+  // This is from Kavita's code
+  L.tileLayer(
+    "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
+    {
+      maxZoom: 18,
+      attribution:
+        'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      id: "mapbox.streets"
+    }
+  ).addTo(map);
+}
+
 function filterMarkets() {
   const daysFiltered = filterDaysOfWeek(markets);
   const paymentFiltered = filterPayment(daysFiltered);
   const productsFiltered = filterProducts(paymentFiltered);
   renderMarkets(productsFiltered);
+  renderMap(productsFiltered);
 }
 
 function filterDaysOfWeek(markets) {
@@ -172,3 +219,27 @@ function filterProducts(markets) {
   console.log("PRODUCTS", productsFiltered);
   return productsFiltered;
 }
+
+//Controls opening and closing of filter panel
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("sidenav").style.paddingLeft = "10px";
+  //document.getElementById("bod").style.marginLeft = "250px";
+  //document.getElementById("flip_card_inner").style.marginLeft = "250px";
+}
+function closeNav() {
+  document.getElementById("sidenav").style.width = "0";
+  document.getElementById("sidenav").style.paddingLeft = "0";
+  //document.getElementById("bod").style.marginLeft = "0";
+  //document.getElementById("flip_card_inner").style.marginLeft = "0";
+}
+
+//function that flips market cards to map
+function flipMap() {
+  const flippingMap = document.querySelector(".flippingMap");
+  flippingMap.classList.toggle("is-flipped");
+  const mapButton = document.querySelector(".mapButton");
+  mapButton.innerHTML = "View Markets";
+}
+
+
