@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // Fetches all markets and returns an array
 async function fetchMarketsAsync() {
-  const resp = await fetch("/api");
+  const resp = await fetch("https://finderfm.herokuapp.com/");
   const jsonResp = await resp.json();
   return jsonResp.data;
 }
