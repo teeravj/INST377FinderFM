@@ -322,3 +322,9 @@ body {
   height: 100%;
   width: 100vh;
 }
+
+.mapFace--back
+{
+  height: 500px !important;
+  width: 90% !important;
+}
