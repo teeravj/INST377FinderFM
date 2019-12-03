@@ -1,4 +1,5 @@
 let markets;
+let map;
 //This will be for markets in local storage for extra credit
 //let storedMarkets;
 
@@ -8,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   console.log(markets);
   //console.log(storedMarkets);
   renderMarkets(markets);
-  renderMap(markets);
+  initializeMap(markets);
 });
 
 // Fetches all markets and returns an array
@@ -67,7 +68,7 @@ function renderMarket(market, marketCards) {
   const moreInfo = document.createElement("div");
   moreInfo.className = "infoButton";
   moreInfo.innerHTML = "More Info";
-  moreInfo.addEventListener("click", function () {
+  moreInfo.addEventListener("click", function() {
     flippingCard.classList.toggle("is-flipped");
   });
 
@@ -76,16 +77,20 @@ function renderMarket(market, marketCards) {
   marketCards.appendChild(cardBody);
 }
 
+function initializeMap(markets) {
+  // Kavita's code
+  map = L.map("map", { keyboard: true, scrollWheelZoom: true }).setView(
+    [38.9, -76.8],
+    10
+  );
+
+  renderMap(markets);
+}
+
 // Takes filtered array and renders map with those locations
 function renderMap(markets) {
   const mapDisplay = document.querySelector(".mapFace--back");
   mapDisplay.innerHTML = "";
-
-  // Start of Kavita's code
-  let map = L.map("map", { keyboard: true, scrollWheelZoom: true }).setView(
-    [38.9, -76.8],
-    10
-  );
 
   // This is the code that was in Kavita's fetch and .then statements
   markets.forEach(m => {
@@ -93,13 +98,12 @@ function renderMap(markets) {
     let ind = s.lastIndexOf('"address":') + 12;
     let ind2 = s.indexOf(",");
     let loc = s.slice(ind, ind2 - 1);
-    var marker = L.marker([m.location.latitude, m.location.longitude]).addTo(
+    let marker = L.marker([m.location.latitude, m.location.longitude]).addTo(
       map
     );
     marker.bindPopup(loc);
   });
 
-  // This is from Kavita's code
   L.tileLayer(
     "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
     {
@@ -115,8 +119,10 @@ function renderMap(markets) {
   function onLocationFound(e) {
     var radius = e.accuracy / 2;
 
-    L.marker(e.latlng).addTo(map)
-      .bindPopup("This is your current location!").openPopup();
+    L.marker(e.latlng)
+      .addTo(map)
+      .bindPopup("This is your current location!")
+      .openPopup();
     // .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
     L.circle(e.latlng, radius).addTo(map);
@@ -126,8 +132,8 @@ function renderMap(markets) {
     alert(e.message);
   }
 
-  map.on('locationfound', onLocationFound);
-  map.on('locationerror', onLocationError);
+  map.on("locationfound", onLocationFound);
+  map.on("locationerror", onLocationError);
 
   map.locate({ setView: true, maxZoom: 12 });
 }
@@ -260,5 +266,3 @@ function flipMap() {
   const mapButton = document.querySelector(".mapButton");
   mapButton.innerHTML = "View Markets";
 }
-
-
