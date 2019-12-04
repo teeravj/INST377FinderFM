@@ -1,0 +1,172 @@
+body {
+    margin: 0px;
+    font-family: Karla,Helvetica,sans-serif;
+    letter-spacing: .7px;
+    
+}
+
+
+/* Navigation Bar + Navigation IMG + LOGO */
+
+.logo {
+    opacity: 1;
+    display: flex;
+    height: 40px;
+    width: 200px;
+    background-color: #F26671;
+    border: 10px double white;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logobar {
+    padding-top: 20px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.topnav {
+    min-height: 40px;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255, 1.0);
+    text-align:center;
+    display: flex;
+    justify-content: center;
+}
+
+.topnav a {
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+.fa {
+    color: #F26671 !important;
+}
+
+.dec_img {
+    
+    height: 55%;
+    background-image: url("../img/root.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+}
+
+
+
+
+
+
+
+
+
+.documentation_header {
+    font-weight: 800;
+    letter-spacing: .12em;
+    font-family: HalisR-SBold,sans-serif;
+    /* #843c8c   */
+    /*text-transform: lowercase;*/
+    font-size: 48px;
+    color: #8c334f; /*#73ce45;*/ /*#db1650;*/   /* good purple/red #8c334f*/ /*#79579a*/ /* yellow #efdb51*/
+    text-align: center;
+    padding-top: 25px;
+  
+   
+}
+
+@media (max-width:800px) {
+    .documentation_header {
+        font-size: 38px;
+    }
+}
+
+.contri_title{
+    color:black;
+    letter-spacing: .12em;
+    font-size: 28px;
+    text-align: center;
+    padding: 25px;
+    font-weight: 400;
+}
+
+
+
+
+ul {
+    font-family: Karla,Helvetica,sans-serif;
+    letter-spacing: .7px;
+    font-size: 18px;
+    padding-left:0px;
+    font-weight: 100;
+}
+
+
+.api{
+    padding: 100px;
+    background-color:#8c334f; /*#73ce45 */  
+    text-align: center; 
+    color:white;
+    font-weight: 800;
+    font-size: 22px;
+}
+
+.link {
+    text-align: center; 
+    word-break: break-all;
+
+}
+
+
+
+
+
+.documentation_text {
+    /*font-family: HalisR-SBold,sans-serif;*/
+    font-size: 16px;
+    /* line-height: 1.5em;*/
+    line-height: 30px;
+    font-family: Karla,Helvetica,sans-serif;
+    color: #1e1e1e;
+    margin:20px;
+    letter-spacing: .7px;
+    text-align: center;
+}
+
+/* Hamburger menu */
+@media screen and (max-width: 650px) {
+    .topnav a {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+    .topnav {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+        position:absolute;
+        right: 0;
+        top: 0;
+      }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+}
+
