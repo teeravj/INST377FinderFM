@@ -1,0 +1,368 @@
+body {
+    margin: 0px;
+    font-family: Karla,Helvetica,sans-serif;
+    letter-spacing: .7px;
+    
+}
+
+
+/* Navigation Bar + Navigation IMG + LOGO */
+
+.logo {
+    opacity: 1;
+    display: flex;
+    height: 40px;
+    width: 230px;
+    background-color: #F26671;
+    border: 10px double white;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logobar {
+    padding-top: 20px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.topnav {
+    min-height: 40px;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255, 1.0);
+    text-align:center;
+    display: flex;
+    justify-content: center;
+}
+
+.topnav a {
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+.fa {
+    color: #F26671 !important;
+}
+
+.dec_img {
+    
+    height:80%;
+    background-image: url("../static/peach.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content:center;
+    align-items:center; /*align items across cross axis*/
+    
+    
+}
+
+.head_header{
+   
+    color: white;
+    font-size: 3.5rem;
+    background: rgb(0, 0, 0, .70);
+    padding: 5%;
+    text-align:center;
+    margin:auto;
+}
+
+.head_header a {
+    text-align: center;
+    padding: 17px;
+    text-decoration: none;
+    font-size: 17px;
+    background: #F26671;
+    color:white;
+}
+
+
+.head_about {
+    color:white;
+    font-size: 15px;
+    text-align:center;
+    padding-top: 3%;
+    padding-bottom:10%;
+}
+
+@media (max-width:750px) {
+
+    .head_header{
+   
+        color: white;
+        font-size: 2.3rem;
+        background: rgb(0, 0, 0, .70);
+        padding: 10%;
+        text-align:center;
+        /*margin-bottom:19%*/
+        text-align:center;
+        margin:auto;
+    }
+    
+    .head_header a {
+        text-align: center;
+        padding: 13px;
+        text-decoration: none;
+        font-size: 13px;
+        background: #F26671;
+        color:white;
+
+    }
+    
+    
+    .head_about {
+        color:white;
+        font-size: 13px;
+        text-align:center;
+        padding-top: 3%;
+        padding-bottom:7%;
+    }
+}
+
+/* Hamburger menu */
+@media screen and (max-width: 650px) {
+    .topnav a {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+    .topnav {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+        position:absolute;
+        right: 0;
+        top: 0;
+      }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+}
+
+
+.fm{
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.header_fm{
+    text-align: center; /* why need this to center and not just justify content*/
+    font-family: Pacifico; 
+    font-size: 48px; font-style: normal; 
+    font-variant: normal;
+    margin:25px;
+    /* why white aorund text with no padding/margin? */
+
+
+}
+
+.select_fm{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    background-color: white;      /*rgb(41, 41, 41);*/
+    align-content: center;
+    
+    margin-bottom:50px;
+    margin-left:50px;
+    margin-right:50px;
+   
+}
+
+/*ITEM 1*/
+
+.item_1 {
+    display:flex;
+    flex-flow: column nowrap;
+    padding: 17px;
+    background-color: white;
+    border-radius: 15px;
+    border: 3px dotted black;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    margin-left: 20px;
+    margin-right:20px;
+    flex-basis:300px;
+   
+    
+  
+}
+
+.item_img {
+    background-image: url("../static/blueberry2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    height: 250px;
+    width:300px;
+    color:white;
+    text-align: center;   
+}
+
+.text{
+    
+    font-weight: 600;
+    font-size: 30px;
+    margin-top:100px;
+
+}
+
+.item_text{
+    font-weight: 200;
+    padding-top: 20px;
+    text-align: center; 
+}
+
+.item_learnmore{
+    padding:10px;
+    background-color: #F26671;
+    border-radius: 10px;
+    color:white;
+    font-weight: 400;
+}
+
+/*ITEM 2*/
+
+.item_2 {
+    display:flex;
+    flex-flow: column nowrap;
+    padding: 17px;
+    background-color: white;
+    border-radius: 15px;
+    border: 3px dotted black;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    flex-basis:300px;
+    margin-left: 20px;
+    margin-right:20px;
+   
+    
+    
+}
+
+.item_img2 {
+    background-image: url("../static/pepper.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    height: 250px;
+    width:300px;
+    color:white;
+    text-align: center;   
+
+}
+
+.text2 {
+    
+    font-weight: 600;
+    font-size: 30px;
+    margin-top:100px;
+
+}
+
+.item_text2 {
+    font-weight: 200;
+    padding-top: 20px;
+    text-align: center; 
+}
+
+.item_learnmore2 {
+    padding:10px;
+    background-color: #F26671;
+    border-radius: 10px;
+    color:white;
+    font-weight: 400;
+}
+
+/*ITEM 3*/
+
+.item_3 {
+    display:flex;
+    flex-flow: column nowrap;
+    padding: 17px;
+    background-color: white;
+    border-radius: 15px;
+    border: 3px dotted black;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    flex-basis:300px;
+    margin-left: 20px;
+    margin-right:20px;
+   
+
+  
+}
+
+.item_img3 {
+    background-image: url("../static/apple.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    height: 250px;
+    width:300px;
+    color:white;
+    text-align: center;    
+}
+
+.text3 {
+    
+    font-weight: 600;
+    font-size: 30px;
+    margin-top:100px;
+
+}
+
+.item_text3 {
+    font-weight: 200;
+    padding-top: 20px;
+    text-align: center; 
+}
+
+.item_learnmore3 {
+    padding:10px;
+    background-color: #F26671;
+    border-radius: 10px;
+    color:white;
+    font-weight: 400;
+}
+
+.copy {
+    
+    color:white;
+    letter-spacing: 5px;
+    font-size: 40px;
+    font-weight:600;
+    text-align:center;
+    background-color: black;
+    padding:70px;
+}
+
+.contact_info {
+    font-weight:300;
+    color:white;
+    font-size: 25px;
+    letter-spacing: 3px;
+
+}
