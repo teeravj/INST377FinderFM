@@ -116,17 +116,17 @@ function renderMap(markets) {
     }
   ).addTo(map);
 
-  function onLocationFound(e) {
-    var radius = e.accuracy / 2;
+  // function onLocationFound(e) {
+  //   var radius = e.accuracy / 2;
 
-    L.marker(e.latlng)
-      .addTo(map)
-      .bindPopup("This is your current location!")
-      .openPopup();
-    // .bindPopup("You are within " + radius + " meters from this point").openPopup();
+  //   L.marker(e.latlng)
+  //     .addTo(map)
+  //     .bindPopup("This is your current location!")
+  //     .openPopup();
+  //   // .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
-    L.circle(e.latlng, radius).addTo(map);
-  }
+  //   L.circle(e.latlng, radius).addTo(map);
+  // }
 
   function onLocationError(e) {
     alert(e.message);
@@ -249,13 +249,13 @@ function filterProducts(markets) {
 function openNav() {
   document.getElementById("sidenav").style.width = "250px";
   document.getElementById("sidenav").style.paddingLeft = "10px";
-  //document.getElementById("bod").style.marginLeft = "250px";
+  document.querySelector(".results").style.marginLeft = "250px";
   //document.getElementById("flip_card_inner").style.marginLeft = "250px";
 }
 function closeNav() {
   document.getElementById("sidenav").style.width = "0";
   document.getElementById("sidenav").style.paddingLeft = "0";
-  //document.getElementById("bod").style.marginLeft = "0";
+  document.querySelector(".results").style.marginLeft = "0px";
   //document.getElementById("flip_card_inner").style.marginLeft = "0";
 }
 
