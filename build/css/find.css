@@ -114,6 +114,7 @@ body {
 }
 
 .results {
+  /* background-color: #f26671; */
   width: 90%;
   height: 100vh;
 }
@@ -121,6 +122,7 @@ body {
 /* CSS for card flip 3D animation found at https://3dtransforms.desandro.com/card-flip */
 
 .scene2 {
+  background-color: aqua;
   perspective: 600x;
 }
 
