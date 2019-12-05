@@ -21,7 +21,7 @@ async function fetchMarketsAsync() {
 
 // Renders the array of markets
 function renderMarkets(markets) {
-  const marketCards = document.querySelector(".marketCardsFace--front");
+  const marketCards = document.querySelector(".results");
   marketCards.innerHTML = "";
   markets.forEach(m => {
     renderMarket(m, marketCards);
@@ -58,11 +58,20 @@ function renderMarket(market, marketCards) {
 
   //create description text and append it to the back description div
   const marketLocation = JSON.parse(market.location.human_address);
-  const marketDescription = document.createTextNode(
-    "When: " + market.season1time + "Where: " + marketLocation.address
+  const marketTimes = document.createTextNode("When: " + market.season1time);
+  const marketAddress = document.createTextNode(
+    "Where: " + marketLocation.address
   );
 
-  cardDescription.appendChild(marketDescription);
+  const mT = document.createElement("div");
+  mT.className = "times";
+  const mA = document.createElement("div");
+
+  mT.appendChild(marketTimes);
+  mA.appendChild(marketAddress);
+
+  cardDescription.appendChild(mT);
+  cardDescription.appendChild(mA);
 
   //create a more info button that flips the title to the description
   const moreInfo = document.createElement("div");
