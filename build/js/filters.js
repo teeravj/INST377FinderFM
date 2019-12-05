@@ -9,14 +9,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   console.log(markets);
   //console.log(storedMarkets);
   renderMarkets(markets);
-  initializeMap(markets);
+  //initializeMap(markets);
 });
 
 // Fetches all markets and returns an array
 async function fetchMarketsAsync() {
   const resp = await fetch("https://finderfm.herokuapp.com/");
   const jsonResp = await resp.json();
-  return jsonResp.data;
+  return jsonResp.cleanData;
 }
 
 // Renders the array of markets
@@ -59,7 +59,7 @@ function renderMarket(market, marketCards) {
   //create description text and append it to the back description div
   const marketLocation = JSON.parse(market.location.human_address);
   const marketDescription = document.createTextNode(
-    "This market runs " + market.season1time + " at " + marketLocation.address
+    "When: " + market.season1time + "Where: " + marketLocation.address
   );
 
   cardDescription.appendChild(marketDescription);
@@ -77,7 +77,7 @@ function renderMarket(market, marketCards) {
   marketCards.appendChild(cardBody);
 }
 
-function initializeMap(markets) {
+/*function initializeMap(markets) {
   // Kavita's code
   map = L.map("map", { keyboard: true, scrollWheelZoom: true }).setView(
     [38.9, -76.8],
@@ -136,7 +136,7 @@ function renderMap(markets) {
   map.on("locationerror", onLocationError);
 
   map.locate({ setView: true, maxZoom: 12 });
-}
+}*/
 
 function filterMarkets() {
   const daysFiltered = filterDaysOfWeek(markets);
@@ -163,7 +163,7 @@ function filterDaysOfWeek(markets) {
       markets.forEach(m => {
         const key = i;
         if (
-          m.season1time &&
+          //m.season1time &&
           m.season1time.toLowerCase().includes(key) &&
           !marketsFiltered.includes(m)
         ) {
@@ -217,6 +217,7 @@ function filterPayment(markets) {
 function filterProducts(markets) {
   let productsFiltered = [];
   let selectedProds = [];
+  let matchingProds = [];
 
   const prodBoxes = document.querySelectorAll(".prod");
   for (node of prodBoxes) {
@@ -224,18 +225,30 @@ function filterProducts(markets) {
       selectedProds.push(node.id);
     }
   }
+
+  console.log(selectedProds);
+
   if (!selectedProds.length) {
     productsFiltered = markets;
   } else {
-    selectedProds.forEach(p => {
-      markets.forEach(m => {
+    markets.forEach(m => {
+      matchingProds = [];
+      selectedProds.forEach(p => {
         const key = p;
-        if (m[key] === "Yes" && !productsFiltered.includes(m)) {
-          productsFiltered.push(m);
+        if (m[key] === "Yes") {
+          matchingProds.push(key);
         }
       });
+      console.log(matchingProds);
+      if (
+        matchingProds.length == selectedProds.length &&
+        !productsFiltered.includes(m)
+      ) {
+        productsFiltered.push(m);
+      }
     });
   }
+
   // if no checkboxes are checked return the markets passed in array
   if (!productsFiltered.length) {
     productsFiltered = [];
@@ -260,9 +273,9 @@ function closeNav() {
 }
 
 //function that flips market cards to map
-function flipMap() {
+/*function flipMap() {
   const flippingMap = document.querySelector(".flippingMap");
   flippingMap.classList.toggle("is-flipped");
   const mapButton = document.querySelector(".mapButton");
   mapButton.innerHTML = "View Markets";
-}
+}*/
