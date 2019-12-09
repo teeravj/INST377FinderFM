@@ -16,6 +16,6 @@
 
 
 ## Road-map for future development
-* Implement a calendar
 * Implement a live map with our filter functions
 * Live updates with React
+* Implement a calendar
