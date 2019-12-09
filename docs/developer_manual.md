@@ -15,8 +15,8 @@
 ## API for server application 
 [PG Country API](https://data.princegeorgescountymd.gov/resource/sphi-rwax.json)
 ### All GET, POST, PATCH, etc endpoints, and what they each do
-* GET
-..* app.get("/", (req, res) => {
+#### GET
+* app.get("/", (req, res) => {
   const baseURL =
     "https://data.princegeorgescountymd.gov/resource/sphi-rwax.json";
   fetch(baseURL)
@@ -39,13 +39,13 @@
 });
 ..* The GET endpoint of our server retrieves and transforms data from the API. For this API specifically, the GET endpoint only includes markets that are not missing any data, such as the season1time. There is also a duplicate in this API so we do not include that market by including "i.farmers_market_id != '1010258'" in the initial if statement when transforming the data. The cleaned, transformed data is then sent to the front end when a GET request is made.
 
-* POST
+#### POST
 * app.post("/", (req, res) => {
   res.send({"hello world!": "hello world!"});
   });
 * Our POST endpoint was not needed for this app because no data was being sent to the server. However, using curl, you will see "hello world!" in your console if you make a POST request.
 
-* PUT
+#### PUT
 * app.put("/", (req, res) => {
   res.send({"hello world!": "hello world!"});
   });
