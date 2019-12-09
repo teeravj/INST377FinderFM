@@ -21,12 +21,11 @@ Our group decided to build a website where you could filter data fetched from th
 ## Technical Decision Rationale:
 
 
-## How Solution Addresses Problem: <- Need to add a lot more to this section (I’ll volunteer to do this - Sonia)
-Our solution helps bring attention to and resolve the lack of resources available for local farmers markets, and helps fulfill the information need by providing a resource for those who wish to go support local farms directly. 
+## How Solution Addresses Problem:
+Our solution helps bring attention to and resolve the lack of resources available for local farmers markets, and helps fulfill the information need by providing a resource for those who wish to go support local farms directly. There are currently resources available for those who wish to use farmers markets within the area such as [farmpgc.com](farmpgc.com), but they have limited search capabilities. The lack of resources is something we hope to fill with our resource as it does have filter capabilities and a scalable structure. 
 
 ## Challenges:
 Initially, we wanted to use React to add specific features to our website, but we encountered problems incorporating the code, so we ended up deciding not to use React. Additionally, we seemed to encounter issues with dividing the work mainly because we were not sure how the work could have been divided according to our skillset. To overcome this challenge, we talked about everyone’s strengths and let the people who were strong coders work on the website, while others focused on reports and presentations. Lastly, we had issues with getting everyone on the same page because of varying skill sets. To resolve this issue, people who were not as advanced with coding, helped wherever possible, but primarily focused on reports. 
 
 ## Possible Future Work:
-This website could be expanded in the future to add farmers’ markets from other areas, not just PG county. In this way, people in other counties can find farmers’ markets in their areas. This was a big possibility for us as we wanted to structure the site to be scalable to other datasets.
-We could also make changes to…
+This website could be expanded in the future to add farmers’ markets from other areas, not just PG county. In this way, people in other counties can find farmers’ markets in their areas. This was a big possibility for us as we wanted to structure the site to be scalable to other datasets. We also had the intention of a map feature and calendar feature, but we did not have enough time and resources to dedicate to it by the deadline of our project. We hope to eventually further develop our skills to implement these features within our Find page or an additional page, as well as live updates with React.
