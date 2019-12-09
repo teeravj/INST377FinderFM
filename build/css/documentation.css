@@ -58,7 +58,7 @@ body {
 .dec_img {
     
     height: 55%;
-    background-image: url("../img/root.jpg");
+    background-image: url("../static/root.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;

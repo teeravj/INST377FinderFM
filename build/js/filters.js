@@ -277,7 +277,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("sidenav").style.width = "0";
   document.getElementById("sidenav").style.paddingLeft = "0";
-  document.querySelector(".results").style.marginLeft = "0px";
+  document.querySelector(".results").style.marginLeft = "120px";
   //document.getElementById("flip_card_inner").style.marginLeft = "0";
 }
 
