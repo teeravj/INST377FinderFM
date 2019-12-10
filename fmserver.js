@@ -16,8 +16,7 @@ app.use(cors());
 app.use(express.static("build"));
 
 app.get("/", (req, res) => {
-  const baseURL =
-    "https://data.princegeorgescountymd.gov/resource/sphi-rwax.json";
+  const baseURL = `https://data.princegeorgescountymd.gov/resource/sphi-rwax.json?$$app_token=${process.env.PGCOUNTYAPPTOKEN}`;
   fetch(baseURL)
     .then(r => r.json())
     .then(data => {
