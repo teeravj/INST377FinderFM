@@ -2,7 +2,7 @@
 ## Description:
 A website that helps users filter, find, and attend PG County farmers markets 
 ## Link:
-[FinderFM](https://meaggrif.github.io/finderfm/src/home.html)
+[FinderFM](https://finderfm.netlify.com/)
 
 ## Target Browsers:
 We have targeted popular PC browsers such as:
