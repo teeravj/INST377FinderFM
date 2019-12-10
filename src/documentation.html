@@ -1,62 +1,143 @@
 <html>
-
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/documentation.css">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./css/documentation.css" />
     <script type="text/javascript" src="./js/test.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="logobar">
-        <div class="logo">Finder FM</div>
+      <div class="logo">Finder FM</div>
     </div>
     <div class="topnav" id="myNav">
-        <a href='home.html'>Home </a>
-        <a href='about_page.html'>About Us </a>
-        <a href='find.html'>Find a Farmers Market </a>
-        <a href='documentation.html'>Documentation </a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
+      <a href="home.html">Home </a>
+      <a href="about_page.html">About Us </a>
+      <a href="find.html">Find a Farmers Market </a>
+      <a href="documentation.html">Documentation </a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
 
     <div class="dec_img"></div>
 
-    <div class ='documentation_header'> DOCUMENTATION </div>
+    <div class="documentation_header">DOCUMENTATION</div>
 
-
-
-
-
-    
-      <div class="contri_title"> Contributors:
-        <ul> 
-          Chris Tang, 
-          Kavita Kothari,
-          Marisa Pesce,
-          Meagan Griffith,
-          Sonia Morgan,
-          Travis Johnson
-        </ul>
-      </div>
-    
-
-    <div class ='api'>  API USED: 
-      <div class = "link">https://data.princegeorgescountymd.gov/resource/sphi-rwax.json</div>
-
-
-
+    <div class="contri_title2">
+      <h3>Contributors:</h3>
+      <p>
+        Chris Tang, Kavita Kothari, Marisa Pesce, Meagan Griffith, Sonia Morgan,
+        Travis Johnson
+      </p>
     </div>
 
+    <div class="api">
+      <h3>API USED:</h3>
+      <div class="link">
+        https://data.princegeorgescountymd.gov/resource/sphi-rwax.json
+      </div>
+    </div>
 
+    <div class="contri_title">
+      <h3>How to install your application and all dependencies</h3>
+      <div class = "contri_text">
+        * Navigate to the directory/folder with the project using the command
+        line. <br>
+        * Run "npm install" in the command line. <br>
+        * You should now have a package-lock.json file, a package.json file,
+        a .eslintrc and a .esinterc.json file, and a node_modules folder. <br>
+        * Make sure to include the following in your .gitignore: 
+        node_modules, .DS_Store, npm-debug.log, .vscode/, and /.env <br>
+        * To see if the server is working, run "npm start". You should see a 
+        message in the console that says
+        "Example app listening on port 8000!"
+      </div>
 
+      <br>
+      <h3>How to run your application on a server</h3>
+      <div class = "contri_text">
+        * Open a new tab or window in your browser. <br>* In the URL bar, type
+        "localhost:8000" <br>* You should see the home page for FinderFM!
+      </div>
 
+      <br>
+      <h3>All GET, POST, PATCH, etc endpoints, and what they each do</h3>
 
+      <h5>GET</h5>
+      <div class = "contri_text">
+        * app.get("/", (req, res) => { <br>
+          const baseURL =<br>
+          "https://data.princegeorgescountymd.gov/resource/sphi-rwax.json";<br>
+        fetch(baseURL)<br> 
+        .then(r => r.json()) <br>
+        .then(data => { <br>
+          let cleanData = [];<br><br>
+        data.forEach(i => { <br>
+          if (i.season1time && i.farmers_market_id !=<br>
+        "1010258") { <br>
+          cleanData.push(i); <br>
+        } <br>
+      }); <br>
+      console.log(cleanData); <br>
+      res.send({<br>
+        cleanData: cleanData });<br>
+       }) <br>
+       .catch(err => { <br>
+         console.log(err);<br>
+        res.redirect("/error");<br>
+       });<br>
+       });
+  
+        <br><br>
+        ..*The GET endpoint of our server retrieves and transforms data from the
+        API. For this API specifically, the GET endpoint only includes markets
+        that are not missing any data, such as the season1time. There is also a
+        duplicate in this API so we do not include that market by including
+        "i.farmers_market_id != '1010258'" in the initial if statement when
+        transforming the data. The cleaned, transformed data is then sent to the
+        front end when a GET request is made.
+      </div>
 
+      <h5>POST</h5>
+      <div class = "contri_text">
+        * app.post("/", (req, res) => { <br>
+          res.send({"hello world!": "hello<br>
+        world!"}); <br>
+      }); <br><br>
+      * Our POST endpoint was not needed for this app because
+        no data was being sent to the server. However, using curl, you will see
+        "hello world!" in your console if you make a POST request.
+      </div>
 
+      <h5>PUT</h5>
+      <div class = "contri_text">
+        * app.put("/", (req, res) => { <br>
+          res.send({"hello world!": "hello world!"}); <br>
+        }); <br><br>
+        * Our PUT endpoint was not needed for this app because no
+        data was being added to a database. However, using curl, you will see
+        "hello world!" in your console if you make a PUT request.
+      </div>
 
+      <br>
+      <h3>Known Bugs</h3>
+      <div class = "contri_text">
+        * There are currently no known bugs.
+      </div>
+      <br>
+      <h3>Road-map for future development</h3>
+      <div class = "contri_text">
+        
+        * Implement a live map with our filter functions <br>
+        * Live updates with React or some type of dynamic framework <br>
+        * Implement a calendar<br>
+      </div>
+    </div>
 
-      <!--
+    <!--
       <div class="documentation_header">DOCUMENTATION</div>
       <div class="documentation_text">
       Contributors:
