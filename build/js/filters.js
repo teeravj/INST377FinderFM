@@ -1,15 +1,12 @@
 let markets;
-let map;
 //This will be for markets in local storage for extra credit
 //let storedMarkets;
 
 document.addEventListener("DOMContentLoaded", async () => {
   markets = await fetchMarketsAsync();
-  //storedMarkets = setMarketDescriptions(markets);
   console.log(markets);
   //console.log(storedMarkets);
   renderMarkets(markets);
-  //initializeMap(markets);
 });
 
 // Fetches all markets and returns an array
@@ -86,73 +83,11 @@ function renderMarket(market, marketCards) {
   marketCards.appendChild(cardBody);
 }
 
-/*function initializeMap(markets) {
-  // Kavita's code
-  map = L.map("map", { keyboard: true, scrollWheelZoom: true }).setView(
-    [38.9, -76.8],
-    10
-  );
-
-  renderMap(markets);
-}
-
-// Takes filtered array and renders map with those locations
-function renderMap(markets) {
-  const mapDisplay = document.querySelector(".mapFace--back");
-  mapDisplay.innerHTML = "";
-
-  // This is the code that was in Kavita's fetch and .then statements
-  markets.forEach(m => {
-    let s = m.location.human_address;
-    let ind = s.lastIndexOf('"address":') + 12;
-    let ind2 = s.indexOf(",");
-    let loc = s.slice(ind, ind2 - 1);
-    let marker = L.marker([m.location.latitude, m.location.longitude]).addTo(
-      map
-    );
-    marker.bindPopup(loc);
-  });
-
-  L.tileLayer(
-    "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
-    {
-      maxZoom: 18,
-      attribution:
-        'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-      id: "mapbox.streets"
-    }
-  ).addTo(map);
-
-  // function onLocationFound(e) {
-  //   var radius = e.accuracy / 2;
-
-  //   L.marker(e.latlng)
-  //     .addTo(map)
-  //     .bindPopup("This is your current location!")
-  //     .openPopup();
-  //   // .bindPopup("You are within " + radius + " meters from this point").openPopup();
-
-  //   L.circle(e.latlng, radius).addTo(map);
-  // }
-
-  function onLocationError(e) {
-    alert(e.message);
-  }
-
-  map.on("locationfound", onLocationFound);
-  map.on("locationerror", onLocationError);
-
-  map.locate({ setView: true, maxZoom: 12 });
-}*/
-
 function filterMarkets() {
   const daysFiltered = filterDaysOfWeek(markets);
   const paymentFiltered = filterPayment(daysFiltered);
   const productsFiltered = filterProducts(paymentFiltered);
   renderMarkets(productsFiltered);
-  renderMap(productsFiltered);
 }
 
 function filterDaysOfWeek(markets) {
@@ -172,7 +107,6 @@ function filterDaysOfWeek(markets) {
       markets.forEach(m => {
         const key = i;
         if (
-          //m.season1time &&
           m.season1time.toLowerCase().includes(key) &&
           !marketsFiltered.includes(m)
         ) {
@@ -281,10 +215,3 @@ function closeNav() {
   //document.getElementById("flip_card_inner").style.marginLeft = "0";
 }
 
-//function that flips market cards to map
-/*function flipMap() {
-  const flippingMap = document.querySelector(".flippingMap");
-  flippingMap.classList.toggle("is-flipped");
-  const mapButton = document.querySelector(".mapButton");
-  mapButton.innerHTML = "View Markets";
-}*/
