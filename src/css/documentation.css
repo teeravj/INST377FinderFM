@@ -95,13 +95,31 @@ body {
 .contri_title{
     color:black;
     letter-spacing: .12em;
-    font-size: 28px;
+    font-size: 24px;
+    text-align: left;
+    padding: 25px;
+    font-weight: 400;
+}
+
+.contri_title2{
+    color:black;
+    letter-spacing: .12em;
+    font-size: 24px;
     text-align: center;
     padding: 25px;
     font-weight: 400;
 }
 
+.contri_text {
+    color:black;
+    letter-spacing: .12em;
+    font-size: 24px;
+    text-align: justify;
+    padding: 25px;
+    font-weight: 400;
+    width:70%;
 
+}
 
 
 ul {
