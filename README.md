@@ -6,9 +6,9 @@ A website that helps users filter, find, and attend PG County farmers markets
 
 ## Target Browsers:
 We have targeted popular PC browsers such as:
-Chrome
-Internet Explorer
-Safari
+* Chrome
+* Internet Explorer
+* Safari
 
 ## User Manual:
 [User Manual](docs/user_manual.md)
