@@ -4,7 +4,7 @@
  Chris Tang, Kavita Kothari, Marisa Pesce, Meagan Griffith, Sonia Morgan, Travis Johnson
 
 ## Link: 
-[FinderFM](https://meaggrif.github.io/finderfm/src/home.html)
+[FinderFM](https://finderfm.netlify.com/)
 
 ## Information Problem: 
 PG County has many farmers’ markets, but there is not an application that compiles all of them and lets users filter the results for farmers’ markets that they want to go to. Additionally, the websites available are not scalable. For example, farmpgc.com has a clean interface, but only provides a text list of farmers’ markets for farmers markets in one county. The format of the website could prove problematic if one were to create a similar website that included farmers markets from more areas. Users, especially ones that are not tech-savvy, would have to scroll through the whole page to perhaps find what they are looking for. Also, limited information is available about these markets. There are no details about what the markets sell. This may be an issue for stakeholders who want to plan their shopping experience in advance.

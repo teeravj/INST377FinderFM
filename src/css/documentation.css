@@ -58,7 +58,7 @@ body {
 .dec_img {
     
     height: 55%;
-    background-image: url("../img/root.jpg");
+    background-image: url("../static/root.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
@@ -95,31 +95,13 @@ body {
 .contri_title{
     color:black;
     letter-spacing: .12em;
-    font-size: 24px;
-    text-align: left;
-    padding: 25px;
-    font-weight: 400;
-}
-
-.contri_title2{
-    color:black;
-    letter-spacing: .12em;
-    font-size: 24px;
+    font-size: 28px;
     text-align: center;
     padding: 25px;
     font-weight: 400;
 }
 
-.contri_text {
-    color:black;
-    letter-spacing: .12em;
-    font-size: 24px;
-    text-align: justify;
-    padding: 25px;
-    font-weight: 400;
-    width:70%;
 
-}
 
 
 ul {

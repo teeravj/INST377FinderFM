@@ -104,23 +104,24 @@ body {
 
 /* start Meagan's CSS */
 
-.container {
-  display: flex;
-  flex-direction: row;
-}
 
 .filters {
   line-height: 25px;
 }
 
 .results {
-  width: 90%;
-  height: 100vh;
+  /* background-color: #f26671; */
+  display: flex;
+  flex-flow: wrap;
+  height: 80vh;
+  margin-left: 120px;
+  overflow: scroll;
 }
 
-/* CSS for card flip 3D animation found at https://3dtransforms.desandro.com/card-flip */
+/* CSS for card flip 3D animation found at https://3dtransforms.desandro.com/card-flip 
 
 .scene2 {
+  background-color: aqua;
   perspective: 600x;
 }
 
@@ -154,7 +155,7 @@ body {
 
 .flippingMap.is-flipped {
   transform: rotateY(180deg);
-}
+}*/
 
 /* market cards for filtered results, based on Marisa's homepage cards */
 
@@ -166,13 +167,18 @@ body {
   background-color: white;
   border-radius: 15px;
   border: 3px dotted black;
+  height: 200px;
+}
+
+.times{
+  margin-bottom: 10px;
 }
 
 /* CSS for card flip 3D animation found at https://3dtransforms.desandro.com/card-flip */
 
 .scene {
   width: 200px;
-  height: 80px;
+  height: 100px;
   perspective: 600x;
 }
 
@@ -205,6 +211,8 @@ body {
 }
 
 .face--back {
+  display: flex;
+  flex-flow: column;
   margin: auto;
   background-color: #f26671;
   height: 100%;
@@ -286,6 +294,7 @@ body {
 }
 .sidenav .closebtn {
   position: absolute;
+  height: 10px;
   top: 0;
   right: 25px;
   font-size: 36px;

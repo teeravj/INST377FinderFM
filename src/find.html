@@ -1,79 +1,216 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+    <link rel="stylesheet" href="css/maps.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/aboutpage.css">
+  <link rel="stylesheet" type="text/css" href="./css/find.css" />
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+    crossorigin=""></script>
+    <script src="./js/filters.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+      integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+      crossorigin=""
+    ></script>
 
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="./css/find.css">
-        <script type="text/javascript" src="test.js"></script>
-    </head>
+    <title>Find a Farmer's Market</title>
+  </head>
 
-
-
-
-<body>
+  <body>
+    <!-- Marisa's navbar & logo code -->
     <div class="logobar">
-        <div class="logo">Finder FM</div>
+      <div class="logo">Finder FM</div>
     </div>
     <div class="topnav" id="myNav">
-        <a href='home.html'>Home </a>
-        <a href='about_page.html'>About Us </a>
-        <a href='#find'>Find a Farmers Market </a>
-        <a href='documentation.html'>Documentation </a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
+      <a href="index.html">Home </a>
+      <a href="about_page.html">About Us </a>
+      <a href="find.html">Find a Farmers Market </a>
+      <a href="documentation.html">Documentation </a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
 
-    <div class="dec_img"></div>
+    <!-- div holding everything under the navbar -->
+    <div class="container">
+      <div class="sidenav" id="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <div class="filters">
+          <!-- days of the week -->
+          <b>Days of the week</b><br>
+      <label for="Sun">Sunday:</label>
+      <input type="checkbox" id="sun" class="day" onclick="filterMarkets()" />
 
-    <div class = "find_title">Find a Farmers Market</div>
 
-    <div>
-        <div><p>Goods: </p></div>
-        <div class="xxxxxx">
-            Vegetables<input type="checkbox" id ="wine">
-            Wine<input type="checkbox" id ="wine">
-            Eggs<input type="checkbox" id ="wine">
-            Cheese<input type="checkbox" id ="wine">
-            Nuts<input type="checkbox" id ="wine">
-            Jam<input type="checkbox" id ="wine">
-            Herbs<input type="checkbox" id ="wine">
-            Baked Goods<input type="checkbox" id ="wine">
-            Honey<input type="checkbox" id ="wine">   
-            Maple<input type="checkbox" id ="wine">
-            Meat<input type="checkbox" id ="wine">
-            Seafood<input type="checkbox" id ="wine">
-            Poultry<input type="checkbox" id ="wine">
-            Flowers <input type="checkbox" id ="wine">
-            Soap<input type="checkbox" id ="wine">
-            Credit Card Taken<input type="checkbox" id ="wine">
+      <label for="mon"> Monday:</label>
+      <input type="checkbox" id="mon" class="day" onclick="filterMarkets()" />
+      <br>
+
+      <label for="tue">Tuesday:</label>
+      <input type="checkbox" id="tue" class="day" onclick="filterMarkets()" />
+
+
+
+      <label for="wed"> Wednesday:</label>
+      <input type="checkbox" id="wed" class="day" onclick="filterMarkets()" />
+      <br>
+
+
+      <label for="thu">Thursday:</label>
+      <input type="checkbox" id="thu" class="day" onclick="filterMarkets()" />
+
+
+
+      <label for="fri"> Friday:</label>
+      <input type="checkbox" id="fri" class="day" onclick="filterMarkets()" />
+      <br>
+
+
+      <label for="sat">Saturday:</label>
+      <input type="checkbox" id="sat" class="day" onclick="filterMarkets()" />
+      <br><br>
+
+          <!-- method of payment -->
+          <b>Payment Method</b><br>
+      <label for="wic">WICC:</label>
+      <input type="checkbox" id="wic" class="pay" onclick="filterMarkets()" />
+
+
+
+      <label for="wiccash"> WICcash:</label>
+      <input type="checkbox" id="wiccash" class="pay" onclick="filterMarkets()" />
+
+      <br>
+
+      <label for="sfmnp">SFMNP:</label>
+      <input type="checkbox" id="sfmnp" class="pay" onclick="filterMarkets()" />
+
+
+
+      <label for="snap"> SNAP:</label>
+      <input type="checkbox" id="snap" class="pay" onclick="filterMarkets()" />
+
+      <br><br>
+
+          <!-- products -->
+          <b>Products</b><br>
+      <label for="bakedgoods">Baked Goods:</label>
+      <input type="checkbox" id="bakedgoods" class="prod" onclick="filterMarkets()" />
+
+
+
+      <label for="cheese"> Cheese:</label>
+      <input type="checkbox" id="cheese" class="prod" onclick="filterMarkets()" />
+
+      <br>
+
+      <label for="crafts">Crafts:</label>
+      <input type="checkbox" id="crafts" class="prod" onclick="filterMarkets()" />
+
+
+
+
+
+      <label for="flowers"> Flowers:</label>
+      <input type="checkbox" id="flowers" class="prod" onclick="filterMarkets()" />
+      <br>
+
+      <label for="eggs">Eggs:</label>
+
+      <input type="checkbox" id="eggs" class="prod" onclick="filterMarkets()" />
+
+
+      <label for="seafood"> Seafood:</label>
+
+      <input type="checkbox" id="seafood" class="prod" onclick="filterMarkets()" />
+      <br>
+
+      <label for="herbs">Herbs:</label>
+
+      <input type="checkbox" id="herbs" class="prod" onclick="filterMarkets()" />
+
+
+      <label for="vegetables"> Vegetables:</label>
+
+      <input type="checkbox" id="vegetables" class="prod" onclick="filterMarkets()" />
+      <br>
+
+      <label for="honey">Honey:</label>
+
+      <input type="checkbox" id="honey" class="prod" onclick="filterMarkets()" />
+
+
+      <label for="jams"> Jams:</label>
+
+      <input type="checkbox" id="jams" class="prod" onclick="filterMarkets()" />
+      <br>
+
+      <label for="maple">Maple:</label>
+
+      <input type="checkbox" id="maple" class="prod" onclick="filterMarkets()" />
+
+
+      <label for="meat"> Meat:</label>
+
+      <input type="checkbox" id="meat" class="prod" onclick="filterMarkets()" />
+      <br>
+
+      <label for="nursery">Nursery:</label>
+      <input type="checkbox" id="nursery" class="prod" onclick="filterMarkets()" />
+
+
+
+      <label for="nuts"> Nuts:</label>
+      <input type="checkbox" id="nuts" class="prod" onclick="filterMarkets()" />
+
+      <br>
+
+      <label for="plants">Plants:</label>
+      <input type="checkbox" id="plants" class="prod" onclick="filterMarkets()" />
+
+
+
+
+
+      <label for="poultry"> Poultry:</label>
+      <input type="checkbox" id="poultry" class="prod" onclick="filterMarkets()" />
+      <br>
+
+      <label for="prepared">Prepared Food:</label>
+      <input type="checkbox" id="prepared" class="prod" onclick="filterMarkets()" />
+
+
+
+      <label for="soap"> Soap:</label>
+      <input type="checkbox" id="soap" class="prod" onclick="filterMarkets()" />
+
+      <br>
+
+      <label for="trees">Trees:</label>
+      <input type="checkbox" id="trees" class="prod" onclick="filterMarkets()" />
+
+
+
+      <label for="wine"> Wine:</label>
+      <input type="checkbox" id="wine" class="prod" onclick="filterMarkets()" />
+
+
+          <div class="ViewMapButton" onclick="location.href='maps.html'">
+            <p id="mapButton">View Map</p>
+          </div>
         </div>
+      </div>
+      <button class="openbtn" onclick="openNav()">☰ Show Filters</button>
+      <div class="results">
+      </div>
+      <div class="footer"></div>
     </div>
-
-
-
-
-<!--
-    function check() {
-
-
-        
-        if (document.querySelector("wine").checked = true) {}
-    }
-   <script> function loadData(){
-        fetch(res=> res.json()) // get + return response data
-        .then(res=>  {
-            let farmersMarket= JSON.stringify(res)
-            sessionStorage.setItem('FM', farmersMarket)
-
-        })
-
-
-
-
-    }
-    </script>-->
-
-
-
-</body>
+  </body>
 </html>
